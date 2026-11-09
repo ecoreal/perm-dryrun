@@ -16,7 +16,8 @@ test("settingsSources: 4 layers in documented order", () => {
   assert.equal(s[0].file, managed);
   assert.equal(s[1].file, path.resolve("/tmp/proj", ".claude", "settings.local.json"));
   assert.equal(s[2].file, path.resolve("/tmp/proj", ".claude", "settings.json"));
-  assert.equal(s[3].file, path.resolve("/home/x", ".claude", "settings.json"));
+  // the implementation joins; resolve() would add a drive letter on windows
+  assert.equal(s[3].file, path.join("/home/x", ".claude", "settings.json"));
 });
 
 import path from "node:path";
