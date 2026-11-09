@@ -1,0 +1,21 @@
+name: ⚖️ Verdict mismatch
+description: perm-dryrun says one thing, Claude Code does another.
+labels: ["mismatch"]
+body:
+  - type: textarea
+    attributes:
+      label: Command
+      description: The exact command you simulated.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Settings files
+      description: The relevant allow/ask/deny rules and which file each is in (redact anything sensitive).
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: perm-dryrun verdict vs real Claude Code behaviour
+    validations:
+      required: true

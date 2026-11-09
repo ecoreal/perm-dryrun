@@ -1,0 +1,40 @@
+{
+  "name": "perm-dryrun",
+  "version": "0.1.0",
+  "description": "Dry-run Claude Code permission rules: which rule matches your command, from which settings file, and whether it lands on allow, ask, or deny — before you run it. Zero dependencies, read-only.",
+  "license": "MIT",
+  "author": "ecoreal",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecoreal/perm-dryrun.git"
+  },
+  "homepage": "https://github.com/ecoreal/perm-dryrun#readme",
+  "bugs": "https://github.com/ecoreal/perm-dryrun/issues",
+  "keywords": [
+    "claude-code",
+    "permissions",
+    "settings",
+    "dry-run",
+    "security",
+    "cli",
+    "lint",
+    "ai"
+  ],
+  "type": "module",
+  "engines": {
+    "node": ">=18.17"
+  },
+  "bin": {
+    "perm-dryrun": "src/cli.js"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "README.zh-CN.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test"
+  },
+  "private": false
+}
