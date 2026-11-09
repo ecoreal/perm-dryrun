@@ -14,9 +14,9 @@ test("settingsSources: 4 layers in documented order", () => {
       ? "C:\\ProgramData\\ClaudeCode\\managed-settings.json"
       : "/etc/claude-code/managed-settings.json";
   assert.equal(s[0].file, managed);
-  assert.equal(s[1].file, path.join("/tmp/proj", ".claude", "settings.local.json"));
-  assert.equal(s[2].file, path.join("/tmp/proj", ".claude", "settings.json"));
-  assert.equal(s[3].file, path.join("/home/x", ".claude", "settings.json"));
+  assert.equal(s[1].file, path.resolve("/tmp/proj", ".claude", "settings.local.json"));
+  assert.equal(s[2].file, path.resolve("/tmp/proj", ".claude", "settings.json"));
+  assert.equal(s[3].file, path.resolve("/home/x", ".claude", "settings.json"));
 });
 
 import path from "node:path";
