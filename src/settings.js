@@ -14,9 +14,12 @@ export function settingsSources({ projectDir = process.cwd(), home = os.homedir(
     {
       label: "managed",
       level: 5,
+      // documented per-platform managed-settings locations
       file: process.platform === "darwin"
         ? "/Library/Application Support/ClaudeCode/managed-settings.json"
-        : "/etc/claude-code/managed-settings.json",
+        : process.platform === "win32"
+          ? "C:\\ProgramData\\ClaudeCode\\managed-settings.json"
+          : "/etc/claude-code/managed-settings.json",
     },
     { label: "project-local", level: 3, file: path.join(proj, ".claude", "settings.local.json") },
     { label: "project", level: 2, file: path.join(proj, ".claude", "settings.json") },

@@ -8,7 +8,12 @@ test("settingsSources: 4 layers in documented order", () => {
     s.map((x) => x.label),
     ["managed", "project-local", "project", "user"],
   );
-  assert.equal(s[0].file, "/etc/claude-code/managed-settings.json");
+  const managed = process.platform === "darwin"
+    ? "/Library/Application Support/ClaudeCode/managed-settings.json"
+    : process.platform === "win32"
+      ? "C:\\ProgramData\\ClaudeCode\\managed-settings.json"
+      : "/etc/claude-code/managed-settings.json";
+  assert.equal(s[0].file, managed);
   assert.equal(s[1].file, path.join("/tmp/proj", ".claude", "settings.local.json"));
   assert.equal(s[2].file, path.join("/tmp/proj", ".claude", "settings.json"));
   assert.equal(s[3].file, "/home/x/.claude/settings.json");
